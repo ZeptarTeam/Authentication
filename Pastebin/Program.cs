@@ -6,24 +6,22 @@ namespace Pastebin
 {
     class Program
     {
-        static string authLink = "https://pastebin.com";
+        static string authLink = "https://pastebin.com"; //Your raw pastebin there
 
         static void Main()
         {
             Console.Title = "C# Authentication";
 
             WebClient webClient = new WebClient();
+            
             try {
-
                 webClient.DownloadString(authLink);
-
             }
             catch (Exception) {
-
                 Console.WriteLine("Could not establish a stable connection to the authentication server, is it down?", Console.ForegroundColor = ConsoleColor.Red);
                 Console.ReadKey();
-
             }
+            
             bool authenticated = webClient.DownloadString(authLink).Contains(getHWID());
             if (authenticated)
             {
@@ -36,8 +34,10 @@ namespace Pastebin
             Console.WriteLine("Could not find HWID in auth server.");
             Console.WriteLine("Your HWID: " + getHWID());
             Console.ReadKey();
+            
         }
 
+        /** Get HWID Method (Not made by me) **/
         static string getHWID()
         {
             string id = "";
