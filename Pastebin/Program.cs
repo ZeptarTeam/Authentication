@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Net;
+using System.Threading;
 using System.Management;
 
 namespace Pastebin
@@ -11,9 +12,9 @@ namespace Pastebin
         static void Main()
         {
             Console.Title = "C# Authentication";
-
             WebClient webClient = new WebClient();
             
+            /** Check if auth server is online **/
             try {
                 webClient.DownloadString(authLink);
             }
@@ -26,8 +27,11 @@ namespace Pastebin
             if (authenticated)
             {
                 Console.WriteLine("Authenticated successfully.", Console.ForegroundColor = ConsoleColor.Green);
-                /** Do whatever you want here **/
-                Console.Read();
+                
+                /** You don't have to the thread sleep and GUI, I just added it to show what you would do there **/
+                Thread.Sleep(1000);
+                GUI();
+                
                 return;
             }
             Console.ForegroundColor = ConsoleColor.Red;
@@ -37,6 +41,11 @@ namespace Pastebin
             
         }
 
+        static void GUI() {
+            Console.WriteLine("hi, this works");
+            Console.ReadKey();
+        }
+        
         /** Get HWID Method (Not made by me) **/
         static string getHWID()
         {
@@ -49,8 +58,8 @@ namespace Pastebin
                 id = mo["ProcessorId"].ToString();
                 break;
             }
+            
             return id;
-
         }
     }
 }
