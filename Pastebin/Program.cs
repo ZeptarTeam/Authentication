@@ -28,7 +28,7 @@ namespace Pastebin
             {
                 Console.WriteLine("Authenticated successfully.", Console.ForegroundColor = ConsoleColor.Green);
                 
-                /** You don't have to the thread sleep and GUI, I just added it to show what you would do there **/
+                /** You don't have to the thread sleep and GUI, I just added it to give an example **/
                 Thread.Sleep(1000);
                 GUI();
                 
