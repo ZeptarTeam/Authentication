@@ -23,8 +23,7 @@ namespace Pastebin
                 Console.ReadKey();
             }
             
-            if (webClient.DownloadString(authLink).Contains(getHWID())
-            {
+            if (webClient.DownloadString(authLink).Contains(getHWID() {
                 Console.WriteLine("Authenticated successfully.", Console.ForegroundColor = ConsoleColor.Green);
                 
                 /** You don't have to the thread sleep and GUI, I just added it to give an example **/
@@ -32,8 +31,7 @@ namespace Pastebin
                 GUI();
                 
                 return;
-            }
-            else {
+            } else {
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Could not find HWID in auth server.");
                 Console.WriteLine("Your HWID: " + getHWID());
